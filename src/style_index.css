@@ -5,31 +5,137 @@ body{
     color: aliceblue;
 }
 
+#loadScreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #19d66e;
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loadScreen.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.logo{
+    animation: pulse 1.5s infinite alternate;
+}
+@keyframes pulse {
+    from { transform: scale(0.95); opacity: 0.8; }
+    to { transform: scale(1.05); opacity: 1; }
+}
 .container{
     position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    
 }
 
-/* #image{
+.image{
     position:absolute;
-} */
-#image img{
-    position: absolute;
-    width: 100vw;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
     z-index:-1;
+
+}
+.image img{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
-#image .overlay{
+.image .overlay{
 position: absolute;
-bottom: 0;
+top: 0;
 left: 0;
-right: 0;
-background-color: #7680b5;
+background-color: #12193a;
 width: 100%;
 height: 100%;
 opacity: 0.5;
+z-index: 1;
 }
 
-#content{
+.content{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    z-index: 5;
+    box-sizing: border-box;
+    
+}
+
+.top{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.top button{
+    border: none;
+    background: transparent;
+    font-size: 120%;
+    color: aliceblue;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+
+.btn > button{
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    margin: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.btn >button:first-child{
+    width: 30px;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.bottom > button:last-child{
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    color: aliceblue;
+    background-color: oklch(69.6% .17 162.48);
+    height: 50px;
+    font-size: 20px;
+    opacity: 0.8;
+    cursor: pointer;
 }
